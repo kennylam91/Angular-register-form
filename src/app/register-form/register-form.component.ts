@@ -20,7 +20,7 @@ export class RegisterFormComponent implements OnInit {
   });
 
   onSubmit() {
-    console.log(this.register.value);
+    console.log(this.register);
   }
 
   constructor() {

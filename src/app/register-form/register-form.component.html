@@ -1,19 +1,21 @@
 <div class="container">
   <div class="row">
-    <form class="col-sm-12" [formGroup]="register" (ngSubmit)="onSubmit()">
+    <form class="col-sm-12" [formGroup]="register" (ngSubmit)="onSubmit()" novalidate>
       <h2 class="text-center">User Registration</h2>
       <div class="form-row form-group">
         <label class="col-sm-3 col-form-label">Email</label>
-        <input formControlName="email" type="email"
+        <input formControlName="email" type="email" required
+               [class.is-invalid]="register.controls.email.invalid && (register.controls.email.dirty||register.controls.email.touched)"
                class="form-control col-sm-9"
                name="email" id="email"
                aria-describedby="helpId"
                placeholder="Input email">
-        <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
       </div>
+      <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
       <div class="form-row form-group">
         <label class="col-sm-3 col-form-label">Password</label>
         <input formControlName="password" type="password"
+               [class.is-invalid]="register.controls.password.invalid && (register.controls.password.dirty||register.controls.password.touched)"
                class="form-control col-sm-9"
                name="password" id="password"
                aria-describedby="helpId"
@@ -23,6 +25,7 @@
       <div class="form-group form-row">
         <label class="col-form-label col-sm-3">Confirm Password</label>
         <input formControlName="confirmPassword" type="password"
+               [class.is-invalid]="register.controls.confirmPassword.invalid && (register.controls.confirmPassword.dirty||register.controls.confirmPassword.touched)"
                class="col-sm-9 form-control"
                name="confirmPassword"
                id="confirmPassword"
@@ -33,23 +36,26 @@
       <div class="form-group form-row">
         <label class="col-form-label col-sm-3">Country</label>
         <select class="form-control col-sm-9"
+                [class.is-invalid]="register.controls.country.invalid && (register.controls.country.touched || register.controls.country.dirty)"
                 formControlName="country" name="country" id="country">
-          <option>USA</option>
-          <option>Vietnam</option>
-          <option>China</option>
+          <option value="">Choose Country</option>
+          <option value="USA">USA</option>
+          <option value="Vietnam">Vietnam</option>
+          <option value="China">China</option>
         </select>
       </div>
       <div class="form-group form-row">
         <label class="col-form-label col-sm-3">Age</label>
         <input formControlName="age" type="number"
+               [class.is-invalid]="register.controls.age.invalid && (register.controls.age.touched||register.controls.age.dirty)"
                class="form-control col-sm-9"
                name="age" id="age"
                aria-describedby="helpId"
                placeholder="Input age">
         <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
       </div>
-      <div class="form-check form-row pl-0">
-        <label class="col-form-label col-sm-3 ">Gender</label>
+      <div class="form-check form-row pl-0 form-group">
+        <label class="col-form-label col-sm-4 ">Gender</label>
         <label class="form-check-label col-sm-2">
           <input formControlName="gender" type="radio"
                  class="form-check-input"
@@ -66,7 +72,8 @@
       </div>
       <div class="form-group form-row">
         <label class="col-form-label col-sm-3">Phone</label>
-        <input formControlName="phone" type="text"
+        <input formControlName="phone" type="number"
+               [class.is-invalid]="register.controls.phone.invalid && (register.controls.phone.dirty || register.controls.phone.touched)"
                class="form-control col-sm-9"
                name="phone" id="phone"
                aria-describedby="helpId"
@@ -74,10 +81,12 @@
         <!--      <small id="helpId" class="form-text text-muted">Help text</small>-->
       </div>
       <div class="form-group form-row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-9">
-        <button class="btn btn-outline-primary" type="submit">Submit</button>
-      </div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+          <button class="btn btn-outline-primary"
+                  type="submit">Submit
+          </button>
+        </div>
       </div>
     </form>
   </div>
