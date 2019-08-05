@@ -16,11 +16,13 @@ export class RegisterFormComponent implements OnInit {
     country: new FormControl('', Validators.required),
     age: new FormControl('', [Validators.required, Validators.min(18)]),
     gender: new FormControl('', Validators.required),
-    phone: new FormControl('', [Validators.required, Validators.pattern(/([(+]*[0-9]+[()+. -]*)/)])
+    phone: new FormControl('', [Validators.required, Validators.pattern(/^\+?(?:[0-9]??).{5,14}[0-9]$/)])
   });
 
-  onSubmit() {
-    console.log(this.register);
+  onSubmit(): void {
+    if (this.register.valid) {
+      console.log(this.register.controls);
+    }
   }
 
   constructor() {
