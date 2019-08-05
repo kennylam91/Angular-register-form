@@ -10,8 +10,13 @@
                name="email" id="email"
                aria-describedby="helpId"
                placeholder="Input email">
+        <div *ngIf="register.controls.email.invalid" class="invalid-feedback">
+          <div *ngIf="register.controls.email.errors.required" class="col-sm-9 offset-sm-3">Email is required</div>
+          <div *ngIf="register.controls.email.errors.pattern" class="col-sm-9 offset-sm-3">Email is not correct</div>
+        </div>
+
       </div>
-      <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
+
       <div class="form-row form-group">
         <label class="col-sm-3 col-form-label">Password</label>
         <input formControlName="password" type="password"
@@ -20,8 +25,13 @@
                name="password" id="password"
                aria-describedby="helpId"
                placeholder="Input password">
-        <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
+
+        <div *ngIf="register.controls.password.invalid" class="invalid-feedback">
+          <div *ngIf="register.controls.password.errors.required" class="col-sm-9 offset-sm-3">Password is required</div>
+          <div *ngIf="register.controls.password.errors.minlength" class="col-sm-9 offset-sm-3">Minimum 6 characters</div>
+        </div>
       </div>
+
       <div class="form-group form-row">
         <label class="col-form-label col-sm-3">Confirm Password</label>
         <input formControlName="confirmPassword" type="password"
@@ -31,7 +41,11 @@
                id="confirmPassword"
                aria-describedby="helpId"
                placeholder="Confirm Password">
-        <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
+
+        <div *ngIf="register.controls.confirmPassword.invalid" class="invalid-feedback">
+          <div *ngIf="register.controls.confirmPassword.errors.required" class="col-sm-9 offset-sm-3">ConfirmPassword is required</div>
+          <div *ngIf="register.controls.confirmPassword.errors.minlength" class="col-sm-9 offset-sm-3">Minimum 6 characters</div>
+        </div>
       </div>
       <div class="form-group form-row">
         <label class="col-form-label col-sm-3">Country</label>
@@ -43,6 +57,9 @@
           <option value="Vietnam">Vietnam</option>
           <option value="China">China</option>
         </select>
+        <div *ngIf="register.controls.country.invalid" class="invalid-feedback">
+          <div *ngIf="register.controls.country.errors.required" class="col-sm-9 offset-sm-3">Country is required</div>
+        </div>
       </div>
       <div class="form-group form-row">
         <label class="col-form-label col-sm-3">Age</label>
@@ -52,7 +69,10 @@
                name="age" id="age"
                aria-describedby="helpId"
                placeholder="Input age">
-        <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
+        <div *ngIf="register.controls.age.invalid" class="invalid-feedback">
+          <div *ngIf="register.controls.age.errors.required" class="col-sm-9 offset-sm-3"> Age is required</div>
+          <div *ngIf="register.controls.age.errors.min" class="col-sm-9 offset-sm-3"> Age is required more than 18</div>
+        </div>
       </div>
       <div class="form-check form-row pl-0 form-group">
         <label class="col-form-label col-sm-4 ">Gender</label>
@@ -69,6 +89,9 @@
                  name="gender" id="female" value="female">
           Female
         </label>
+        <div *ngIf="register.controls.gender.invalid" class="invalid-feedback">
+          <div *ngIf="register.controls.gender.errors.required" class="col-sm-9 offset-sm-3">Gender is required</div>
+        </div>
       </div>
       <div class="form-group form-row">
         <label class="col-form-label col-sm-3">Phone</label>
@@ -77,8 +100,11 @@
                class="form-control col-sm-9"
                name="phone" id="phone"
                aria-describedby="helpId"
-               placeholder="Input phone number">
-        <!--      <small id="helpId" class="form-text text-muted">Help text</small>-->
+               placeholder="Input phone">
+        <div *ngIf="register.controls.phone.invalid" class="invalid-feedback">
+          <div *ngIf="register.controls.phone.errors.required" class="col-sm-9 offset-sm-3">Phone Number is required</div>
+          <div *ngIf="register.controls.phone.errors.pattern" class="col-sm-9 offset-sm-3">Phone Number is not correct</div>
+        </div>
       </div>
       <div class="form-group form-row">
         <div class="col-sm-3"></div>

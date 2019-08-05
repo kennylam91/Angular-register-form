@@ -10,13 +10,13 @@ import {Validators} from '@angular/forms';
 export class RegisterFormComponent implements OnInit {
 
   register = new FormGroup({
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.pattern(/[^@]+@[^\.]+\..+/)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
     country: new FormControl('', Validators.required),
     age: new FormControl('', [Validators.required, Validators.min(18)]),
     gender: new FormControl('', Validators.required),
-    phone: new FormControl('', [Validators.required, Validators.pattern(/^\+84\d{9,10}$/)])
+    phone: new FormControl('', [Validators.required, Validators.pattern(/([(+]*[0-9]+[()+. -]*)/)])
   });
 
   onSubmit() {
