@@ -1,65 +1,84 @@
 <div class="container">
   <div class="row">
-  <form class="col-sm-12">
-    <h2 class="text-center">User Registration</h2>
-    <div class="form-row form-group">
-      <label class="col-sm-3 col-form-label">Email</label>
-      <input type="email"
-             class="form-control col-sm-9"
-             name="email" id="email"
-             aria-describedby="helpId"
-             placeholder="Input email">
-      <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
-    </div>
-    <div class="form-row form-group">
-      <label class="col-sm-3 col-form-label">Password</label>
-      <input type="password"
-             class="form-control col-sm-9"
-             name="password" id="password"
-             aria-describedby="helpId"
-             placeholder="Input password">
-      <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
-    </div>
-    <div class="form-group form-row">
-      <label class="col-form-label col-sm-3">Confirm Password</label>
-      <input type="password"
-             class="col-sm-9 form-control" name="confirmPassword"
-             id="confirmPassword" aria-describedby="helpId" placeholder="Confirm Password">
-      <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
-    </div>
-    <div class="form-group form-row">
-      <label class="col-form-label col-sm-3">Country</label>
-      <select class="form-control col-sm-9" name="country" id="country">
-        <option>USA</option>
-        <option>Vietnam</option>
-        <option>China</option>
-      </select>
-    </div>
-    <div class="form-group form-row">
-      <label class="col-form-label col-sm-3">Age</label>
-      <input type="number"
-             class="form-control col-sm-9" name="age" id="age"
-             aria-describedby="helpId"
-             placeholder="Input age">
-      <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
-    </div>
-    <div class="form-check form-row pl-0">
-      <label class="col-form-label col-sm-3 ">Gender</label>
-      <label class="form-check-label col-sm-2">
-        <input type="radio" class="form-check-input" name="male" id="male" value="male">
-        Male
-      </label>
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="female" id="female" value="female">
-        Female
-      </label>
-    </div>
-    <div class="form-group form-row">
-      <label class="col-form-label col-sm-3">Phone</label>
-      <input type="text"
-             class="form-control col-sm-9" name="phone" id="phone" aria-describedby="helpId" placeholder="Input phone number">
-<!--      <small id="helpId" class="form-text text-muted">Help text</small>-->
-    </div>
-  </form>
-</div>
+    <form class="col-sm-12" [formGroup]="register" (ngSubmit)="onSubmit()">
+      <h2 class="text-center">User Registration</h2>
+      <div class="form-row form-group">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <input formControlName="email" type="email"
+               class="form-control col-sm-9"
+               name="email" id="email"
+               aria-describedby="helpId"
+               placeholder="Input email">
+        <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
+      </div>
+      <div class="form-row form-group">
+        <label class="col-sm-3 col-form-label">Password</label>
+        <input formControlName="password" type="password"
+               class="form-control col-sm-9"
+               name="password" id="password"
+               aria-describedby="helpId"
+               placeholder="Input password">
+        <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
+      </div>
+      <div class="form-group form-row">
+        <label class="col-form-label col-sm-3">Confirm Password</label>
+        <input formControlName="confirmPassword" type="password"
+               class="col-sm-9 form-control"
+               name="confirmPassword"
+               id="confirmPassword"
+               aria-describedby="helpId"
+               placeholder="Confirm Password">
+        <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
+      </div>
+      <div class="form-group form-row">
+        <label class="col-form-label col-sm-3">Country</label>
+        <select class="form-control col-sm-9"
+                formControlName="country" name="country" id="country">
+          <option>USA</option>
+          <option>Vietnam</option>
+          <option>China</option>
+        </select>
+      </div>
+      <div class="form-group form-row">
+        <label class="col-form-label col-sm-3">Age</label>
+        <input formControlName="age" type="number"
+               class="form-control col-sm-9"
+               name="age" id="age"
+               aria-describedby="helpId"
+               placeholder="Input age">
+        <!--        <small id="helpId" class="form-text text-muted">Help text</small>-->
+      </div>
+      <div class="form-check form-row pl-0">
+        <label class="col-form-label col-sm-3 ">Gender</label>
+        <label class="form-check-label col-sm-2">
+          <input formControlName="gender" type="radio"
+                 class="form-check-input"
+                 name="gender" id="male"
+                 value="male">
+          Male
+        </label>
+        <label class="form-check-label">
+          <input formControlName="gender" type="radio"
+                 class="form-check-input"
+                 name="gender" id="female" value="female">
+          Female
+        </label>
+      </div>
+      <div class="form-group form-row">
+        <label class="col-form-label col-sm-3">Phone</label>
+        <input formControlName="phone" type="text"
+               class="form-control col-sm-9"
+               name="phone" id="phone"
+               aria-describedby="helpId"
+               placeholder="Input phone number">
+        <!--      <small id="helpId" class="form-text text-muted">Help text</small>-->
+      </div>
+      <div class="form-group form-row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-9">
+        <button class="btn btn-outline-primary" type="submit">Submit</button>
+      </div>
+      </div>
+    </form>
+  </div>
 </div>

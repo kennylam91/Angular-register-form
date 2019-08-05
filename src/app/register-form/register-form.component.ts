@@ -9,7 +9,7 @@ import {FormsModule, FormControl, FormGroup} from '@angular/forms';
 export class RegisterFormComponent implements OnInit {
 
   register = new FormGroup({
-    email: new FormControl(''),
+    email: new FormControl('',),
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
     country: new FormControl(''),
@@ -17,6 +17,10 @@ export class RegisterFormComponent implements OnInit {
     gender: new FormControl(''),
     phone: new FormControl('')
   });
+
+  onSubmit() {
+    console.log(this.register.value);
+  }
 
   constructor() {
   }
